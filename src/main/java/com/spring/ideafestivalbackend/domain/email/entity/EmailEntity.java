@@ -15,6 +15,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @RedisHash(value = "verify", timeToLive = 60 * 5)
 public class EmailEntity {
+    //test
     @Id
     private String email;
 

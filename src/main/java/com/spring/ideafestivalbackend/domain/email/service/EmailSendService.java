@@ -18,7 +18,7 @@ import java.util.Random;
 public class EmailSendService {
     private final JavaMailSender emailSender;
 
-    private final EmailRepository emailRepository;
+    private EmailRepository emailRepository;
 
     @Async
     public void sendMail(EmailDto emailDto){

@@ -15,7 +15,7 @@ import javax.validation.constraints.Email;
 @RequiredArgsConstructor
 @RequestMapping("/verify-email")
 public class EmailVerifyController {
-
+    //testㅎ랴
     @Autowired
     private EmailVerifyService emailVerifyService;
 

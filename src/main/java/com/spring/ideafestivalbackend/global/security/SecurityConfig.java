@@ -1,4 +1,4 @@
-package com.spring.ideafestivalbackend.global.security.jwt;
+package com.spring.ideafestivalbackend.global.security;
 
 import com.spring.ideafestivalbackend.global.filter.JwtRequestFilter;
 import lombok.RequiredArgsConstructor;

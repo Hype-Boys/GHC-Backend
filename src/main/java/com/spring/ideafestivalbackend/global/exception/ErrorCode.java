@@ -7,6 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ErrorCode {
     NOTMATCH_AUTHCODE("인증번호가 일치하지 않습니다", 400),
+
+    WRONG_PASSWORD("비밀번호가 올바르지 않습니다.", 400),
+
     CODE_EXPIRED("인증번호가 만료되었습니다",409),
 
     USER_NOT_FOUD("유저를 찾을 수 없습니다", 404),

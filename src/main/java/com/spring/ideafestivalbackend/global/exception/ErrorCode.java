@@ -20,6 +20,8 @@ public enum ErrorCode {
 
     BLACK_LIST_ALREADY_EXIST("블랙리스트에 이미 존재합니다.",409),
 
+    EMAIL_ALREADY_EXIST("존재하는 이메일 입니다.", 409),
+
     TOKEN_EXPIRATION("토큰이 만료 되었습니다.", 401),
 
     REFRESH_TOKEN_NOT_FOUND("리프레시 토큰을 찾을 수가 없습니다.",404),

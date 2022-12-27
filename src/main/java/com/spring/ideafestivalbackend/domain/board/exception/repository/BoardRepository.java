@@ -2,7 +2,7 @@ package com.spring.ideafestivalbackend.domain.board.exception.repository;
 
 
 
-import com.spring.ideafestivalbackend.domain.board.BoardEntity;
+import com.spring.ideafestivalbackend.domain.board.entity.BoardEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

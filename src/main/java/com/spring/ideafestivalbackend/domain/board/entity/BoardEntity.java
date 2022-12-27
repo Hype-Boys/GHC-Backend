@@ -1,4 +1,4 @@
-package com.spring.ideafestivalbackend.domain.board;
+package com.spring.ideafestivalbackend.domain.board.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +20,15 @@ public class BoardEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String username;
+
+    private String title;
+
+    private String content;
 
 
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }

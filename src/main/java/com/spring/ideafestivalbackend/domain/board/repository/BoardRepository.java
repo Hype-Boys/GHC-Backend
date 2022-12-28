@@ -1,4 +1,4 @@
-package com.spring.ideafestivalbackend.domain.board.exception.repository;
+package com.spring.ideafestivalbackend.domain.board.repository;
 
 
 

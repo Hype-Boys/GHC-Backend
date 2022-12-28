@@ -1,5 +1,7 @@
 package com.spring.ideafestivalbackend.global.exception.handler;
 
+import com.spring.ideafestivalbackend.domain.board.exception.ErrorCode;
+import com.spring.ideafestivalbackend.domain.board.exception.ErrorMessage;
 import com.spring.ideafestivalbackend.domain.user.exception.BlackListAlreadyExistException;
 import com.spring.ideafestivalbackend.domain.user.exception.RefreshTokenNotFoundException;
 import com.spring.ideafestivalbackend.domain.user.exception.WrongPasswordException;
@@ -14,6 +16,8 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -21,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @RestControllerAdvice
-@Order(Ordered.HIGHEST_PRECEDENCE)
+//@Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MailAuthCodeExpiredException.class)
@@ -72,6 +76,13 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> PasswordWrong(WrongPasswordException exceptin) {
         ErrorResponse errorResponse = new ErrorResponse(exceptin.getErrorCode().getMessage(), exceptin.getErrorCode().getStatus());
         return new ResponseEntity<>(errorResponse, HttpStatus.valueOf(exceptin.getErrorCode().getStatus()));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorMessage> methodValidException(MethodArgumentNotValidException e, HttpServletRequest request){
+        log.warn("MethodArgumentNotValidException 발생!!! url:{}, trace:{}",request.getRequestURI(), e.getStackTrace());
+        ErrorMessage errorMessage = new ErrorMessage(ErrorCode.NOT_NULL.getMessage(), ErrorCode.NOT_NULL.getStatus());   //makeErrorResponse(e.getBindingResult());
+        return new ResponseEntity<ErrorMessage>(errorMessage, HttpStatus.BAD_REQUEST);
     }
 
     private void printError(HttpServletRequest request, RuntimeException ex, String message) {

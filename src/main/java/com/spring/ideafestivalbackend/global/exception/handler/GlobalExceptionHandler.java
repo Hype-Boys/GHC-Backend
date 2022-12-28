@@ -1,8 +1,8 @@
 package com.spring.ideafestivalbackend.global.exception.handler;
 
-import com.spring.ideafestivalbackend.domain.auth.exception.BlackListAlreadyExistException;
-import com.spring.ideafestivalbackend.domain.auth.exception.RefreshTokenNotFoundException;
-import com.spring.ideafestivalbackend.domain.auth.exception.WrongPasswordException;
+import com.spring.ideafestivalbackend.domain.user.exception.BlackListAlreadyExistException;
+import com.spring.ideafestivalbackend.domain.user.exception.RefreshTokenNotFoundException;
+import com.spring.ideafestivalbackend.domain.user.exception.WrongPasswordException;
 import com.spring.ideafestivalbackend.domain.email.exception.MailAuthCodeExpiredException;
 import com.spring.ideafestivalbackend.domain.email.exception.ManyRequestEmailAuthException;
 import com.spring.ideafestivalbackend.domain.email.exception.NotMatchAuthCodeException;
@@ -73,8 +73,6 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(exceptin.getErrorCode().getMessage(), exceptin.getErrorCode().getStatus());
         return new ResponseEntity<>(errorResponse, HttpStatus.valueOf(exceptin.getErrorCode().getStatus()));
     }
-
-
 
     private void printError(HttpServletRequest request, RuntimeException ex, String message) {
         log.error(request.getRequestURI());

@@ -1,10 +1,10 @@
-package com.spring.ideafestivalbackend.domain.auth.service;
+package com.spring.ideafestivalbackend.domain.user.service;
 
-import com.spring.ideafestivalbackend.domain.auth.entity.RefreshToken;
-import com.spring.ideafestivalbackend.domain.auth.exception.WrongPasswordException;
-import com.spring.ideafestivalbackend.domain.auth.presentation.dto.request.UserSignInRequest;
-import com.spring.ideafestivalbackend.domain.auth.presentation.dto.response.UserSignInResponse;
-import com.spring.ideafestivalbackend.domain.auth.repository.RefreshTokenRepository;
+import com.spring.ideafestivalbackend.domain.user.entity.RefreshToken;
+import com.spring.ideafestivalbackend.domain.user.exception.WrongPasswordException;
+import com.spring.ideafestivalbackend.domain.user.presentation.dto.request.SignInRequest;
+import com.spring.ideafestivalbackend.domain.user.presentation.dto.reponse.SignInResponse;
+import com.spring.ideafestivalbackend.domain.user.repository.RefreshTokenRepository;
 import com.spring.ideafestivalbackend.domain.user.entity.User;
 import com.spring.ideafestivalbackend.domain.user.exception.UserNotFoundException;
 import com.spring.ideafestivalbackend.domain.user.repository.UserRepository;
@@ -25,7 +25,7 @@ public class SignInService {
     private final JwtProperties jwtProperties;
 
     @Transactional(rollbackFor = Exception.class)
-    public UserSignInResponse signIn(UserSignInRequest request) {
+    public SignInResponse signIn(SignInRequest request) {
         User user = userRepository.findUserByEmail(request.getEmail()).orElseThrow(() -> new UserNotFoundException("유저를 찾지 못했습니다."));
         if(!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new WrongPasswordException("비밀번호가 올바르지 않습니다.");
@@ -35,7 +35,7 @@ public class SignInService {
         RefreshToken entityToRedis = new RefreshToken(request.getEmail(), refreshToken, tokenProvider.getREFRESH_TOKEN_EXPIRE_TIME());
         refreshTokenRepository.save(entityToRedis);
 
-        return UserSignInResponse.builder()
+        return SignInResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
                 .expiredAt(tokenProvider.getExpiredAtToken(accessToken, jwtProperties.getAccessSecret()))

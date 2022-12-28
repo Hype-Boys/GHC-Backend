@@ -1,4 +1,4 @@
-package com.spring.ideafestivalbackend.domain.auth.entity;
+package com.spring.ideafestivalbackend.domain.user.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

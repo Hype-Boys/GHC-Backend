@@ -1,9 +1,9 @@
-package com.spring.ideafestivalbackend.domain.auth.service;
+package com.spring.ideafestivalbackend.domain.user.service;
 
-import com.spring.ideafestivalbackend.domain.auth.entity.RefreshToken;
-import com.spring.ideafestivalbackend.domain.auth.exception.RefreshTokenNotFoundException;
-import com.spring.ideafestivalbackend.domain.auth.presentation.dto.response.NewTokenResponse;
-import com.spring.ideafestivalbackend.domain.auth.repository.RefreshTokenRepository;
+import com.spring.ideafestivalbackend.domain.user.entity.RefreshToken;
+import com.spring.ideafestivalbackend.domain.user.exception.RefreshTokenNotFoundException;
+import com.spring.ideafestivalbackend.domain.user.presentation.dto.reponse.NewTokenResponse;
+import com.spring.ideafestivalbackend.domain.user.repository.RefreshTokenRepository;
 import com.spring.ideafestivalbackend.global.exception.TokenNotValidException;
 import com.spring.ideafestivalbackend.global.security.jwt.TokenProvider;
 import com.spring.ideafestivalbackend.global.security.jwt.properties.JwtProperties;

@@ -1,4 +1,4 @@
-package com.spring.ideafestivalbackend.domain.auth.presentation.dto.request;
+package com.spring.ideafestivalbackend.domain.user.presentation.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,8 @@ import javax.validation.constraints.Pattern;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserSignupRequest {
+public class SignUpRequest {
+
     @NotBlank(message = "이름[필수]")
     private String name;
 

@@ -19,6 +19,9 @@ public class User extends BaseTimeEntity {
     @Builder.Default
     private String uuid = UUID.randomUUID().toString();
 
+    @Column(nullable = false)
+    private String name;
+
     private String email;
 
     @Column(length = 60)

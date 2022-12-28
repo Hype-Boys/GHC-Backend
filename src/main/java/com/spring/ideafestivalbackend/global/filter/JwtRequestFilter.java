@@ -1,6 +1,5 @@
 package com.spring.ideafestivalbackend.global.filter;
 
-import com.spring.ideafestivalbackend.domain.auth.exception.BlackListAlreadyExistException;
 import com.spring.ideafestivalbackend.global.exception.TokenNotValidException;
 import com.spring.ideafestivalbackend.global.security.jwt.properties.JwtProperties;
 import com.spring.ideafestivalbackend.global.security.jwt.TokenProvider;
@@ -22,20 +21,19 @@ import java.util.Objects;
 @Component
 @RequiredArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
-    private final TokenProvider tokenProvider;
 
+    private final TokenProvider tokenProvider;
     private final JwtProperties jwtProperties;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String accessToken = request.getHeader("Authorization");
 
-        if(!Objects.isNull(accessToken)){
+        if(!Objects.isNull(accessToken)) {
             tokenProvider.extractAllClaims(accessToken, jwtProperties.getAccessSecret());
 
-            if(!tokenProvider.getTokenType(accessToken, jwtProperties.getAccessSecret()).equals("ACCESS_TOKEN")){
+            if (!tokenProvider.getTokenType(accessToken, jwtProperties.getAccessSecret()).equals("ACCESS_TOKEN"))
                 throw new TokenNotValidException("Token is not valid");
-            }
 
             String email = tokenProvider.getUserEmail(accessToken, jwtProperties.getAccessSecret());
             registerSecurityContext(request, email);
@@ -43,8 +41,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private void registerSecurityContext(HttpServletRequest request, String email){
-        UsernamePasswordAuthenticationToken authenticationToken = tokenProvider.authenticationToken(email);
+    private void registerSecurityContext(HttpServletRequest request, String email) {
+        UsernamePasswordAuthenticationToken authenticationToken = tokenProvider.authentication(email);
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
     }
 }

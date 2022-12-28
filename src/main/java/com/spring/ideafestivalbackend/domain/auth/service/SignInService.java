@@ -34,6 +34,7 @@ public class SignInService {
         String refreshToken = tokenProvider.generatedRefreshToken(request.getEmail());
         RefreshToken entityToRedis = new RefreshToken(request.getEmail(), refreshToken, tokenProvider.getREFRESH_TOKEN_EXPIRE_TIME());
         refreshTokenRepository.save(entityToRedis);
+
         return UserSignInResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)

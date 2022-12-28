@@ -31,6 +31,7 @@ public class SignUpService {
        if(!emailEntity.getAuthentication()){
            throw new NotVerifyEmailException("이메일이 인증되지 않았습니다");
        }
+
         User user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))

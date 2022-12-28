@@ -34,6 +34,7 @@ public class RenewTokenService {
         ZonedDateTime expiredAt = tokenProvider.getExpiredAtToken(accessToken, jwtProperties.getAccessSecret());
         token.exchangeRefreshToken(refreshToken);
         refreshTokenRepository.save(token);
+
         return NewTokenResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)

@@ -1,6 +1,6 @@
-package com.spring.ideafestivalbackend.domain.auth.repository;
+package com.spring.ideafestivalbackend.domain.user.repository;
 
-import com.spring.ideafestivalbackend.domain.auth.entity.RefreshToken;
+import com.spring.ideafestivalbackend.domain.user.entity.RefreshToken;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

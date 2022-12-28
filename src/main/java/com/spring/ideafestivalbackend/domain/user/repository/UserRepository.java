@@ -11,5 +11,5 @@ public interface UserRepository extends JpaRepository<User, String> {
     Optional<User> findUserByEmail(String email);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    boolean existByEmail(String email);
+    Boolean existsByEmail(String email);
 }

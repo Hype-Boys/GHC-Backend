@@ -1,4 +1,4 @@
-package com.spring.ideafestivalbackend.domain.auth.exception;
+package com.spring.ideafestivalbackend.domain.user.exception;
 
 import com.spring.ideafestivalbackend.global.exception.ErrorCode;
 import lombok.Getter;

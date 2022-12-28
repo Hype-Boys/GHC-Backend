@@ -23,6 +23,7 @@ public class EmailEntity {
     private String randomValue;
     private Boolean verification;
 
+    private Boolean authentication;
     @ColumnDefault("1")
     private Integer requestCount;
 
@@ -33,6 +34,7 @@ public class EmailEntity {
     public void updateRandomValue(String uuid){ this.randomValue = uuid; }
 
     public void increaseRequestCount(){ this.requestCount += 1; }
+
 
 
 }

@@ -6,11 +6,12 @@ spring:
       naming:
         strategy: org.hibernate.cfg.ImprovedNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate:
         enable_lazy_load_no_trans: 'true'
         format_sql: 'true'
+    show-sql: 'true'
   mail:
     host: smtp.gmail.com
     username: s22055@gsm.hs.kr
@@ -28,7 +29,7 @@ spring:
   main:
     allow-bean-definition-overriding: 'true'
   datasource:
-    password: 158pk158.
+    password: gree7942
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     url: jdbc:mysql://localhost:3306/workout?serverTimezone=UTC&characterEncoding=UTF-8

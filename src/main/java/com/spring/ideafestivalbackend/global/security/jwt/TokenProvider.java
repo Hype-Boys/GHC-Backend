@@ -41,13 +41,11 @@ public class TokenProvider {
         String value;
     }
 
-    // 암호화된 키 값 가져오기
     private Key getSignInKey(String secretKey) {
         byte[] bytes = secretKey.getBytes(StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(bytes);
     }
 
-    // Token 생성
     private String generateToken(String userEmail, TokenType tokenType, String secret, long expireTime) {
         final Claims claims = Jwts.claims();
         claims.put(TokenClaimName.USER_EMAIL.value, userEmail);
@@ -60,7 +58,6 @@ public class TokenProvider {
                 .compact();
     }
 
-    // 모든 Claims 추출 ( Payload에 들어가는 값은 Claims 이라고 부른다 )
     public Claims extractAllClaims(String token, String secret) {
         token = token.replace("Bearer ", "");
         try {

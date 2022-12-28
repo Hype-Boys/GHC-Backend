@@ -1,18 +1,16 @@
-package com.spring.ideafestivalbackend.domain.auth.presentation.dto.response;
+package com.spring.ideafestivalbackend.domain.user.presentation.dto.reponse;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.ZonedDateTime;
 
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Builder
-public class NewTokenResponse {
+public class SignInResponse {
     private String accessToken;
 
     private String refreshToken;

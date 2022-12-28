@@ -1,6 +1,6 @@
 package com.spring.ideafestivalbackend.domain.user.service;
 
-import com.spring.ideafestivalbackend.domain.auth.exception.NotVerifyEmailException;
+import com.spring.ideafestivalbackend.domain.user.exception.NotVerifyEmailException;
 import com.spring.ideafestivalbackend.domain.email.entity.EmailEntity;
 import com.spring.ideafestivalbackend.domain.email.repository.EmailRepository;
 import com.spring.ideafestivalbackend.domain.user.entity.User;

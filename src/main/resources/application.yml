@@ -1,39 +1,15 @@
 spring:
-<<<<<<< HEAD
-  devtools:
-    livereload:
-      enabled: true
-  thymeleaf:
-    cache: false
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ghc?serverTimezone=Asia/Seoul
-    username: root
-    password: 123456
   jpa:
-    show-sql: true
-=======
-  jpa:
->>>>>>> 12fc6e05f23bac63df3b87f876e7ca634a9dbe8e
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    open-in-view: false
-    generate-ddl: false
     hibernate:
-<<<<<<< HEAD
-      ddl-auto: update
-    properties:
-      hibernate:
         format_sql: true
         use_sql_comments: true
-=======
-      ddl-auto: create
+        ddl-auto: create
     properties:
       hibernate:
         enable_lazy_load_no_trans: 'true'
         format_sql: 'true'
     show-sql: 'true'
->>>>>>> 12fc6e05f23bac63df3b87f876e7ca634a9dbe8e
   mail:
     host: smtp.gmail.com
     username: s22055@gsm.hs.kr
@@ -50,13 +26,10 @@ spring:
     port: '6379'
   main:
     allow-bean-definition-overriding: 'true'
-<<<<<<< HEAD
 
-=======
   datasource:
     password: gree7942
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     url: jdbc:mysql://localhost:3306/workout?serverTimezone=UTC&characterEncoding=UTF-8
->>>>>>> 12fc6e05f23bac63df3b87f876e7ca634a9dbe8e
 overriding: 'true'

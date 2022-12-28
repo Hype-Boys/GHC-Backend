@@ -15,12 +15,10 @@ import javax.validation.constraints.Email;
 @RequiredArgsConstructor
 @RequestMapping("/verify-email")
 public class EmailVerifyController {
-    //testㅎ랴
-    @Autowired
     private EmailVerifyService emailVerifyService;
 
     @RequestMapping(method = RequestMethod.HEAD)
-    public ResponseEntity<Void> VerifyEmail(@Email @RequestParam String email, @RequestParam String authCode) {
+    public ResponseEntity<Void> verifyEmail(@Email @RequestParam String email, @RequestParam String authCode) {
         emailVerifyService.verificationMail(email, authCode);
         return ResponseEntity.ok().build();
     }

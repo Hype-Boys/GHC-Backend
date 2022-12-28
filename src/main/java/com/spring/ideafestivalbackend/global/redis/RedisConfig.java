@@ -13,12 +13,10 @@ import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 
 @Configuration
 @RequiredArgsConstructor
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 360)
 @EnableRedisRepositories
 public class RedisConfig {
     private final RedisProperties redisProperties;

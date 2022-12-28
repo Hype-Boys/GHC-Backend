@@ -1,7 +1,7 @@
 package com.spring.ideafestivalbackend.domain.board.service;
 
 import com.spring.ideafestivalbackend.domain.board.entity.BoardEntity;
-import com.spring.ideafestivalbackend.domain.board.exception.repository.BoardRepository;
+import com.spring.ideafestivalbackend.domain.board.repository.BoardRepository;
 import com.spring.ideafestivalbackend.domain.board.presentation.dto.request.BoardRequest;
 import com.spring.ideafestivalbackend.domain.board.presentation.dto.request.ModifyBoardRequest;
 import lombok.RequiredArgsConstructor;

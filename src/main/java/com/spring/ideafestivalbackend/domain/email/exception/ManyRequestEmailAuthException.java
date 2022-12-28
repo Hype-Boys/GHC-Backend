@@ -4,11 +4,12 @@ import com.spring.ideafestivalbackend.global.exception.ErrorCode;
 import lombok.Getter;
 
 @Getter
-public class MailAuthCodeExpiredException extends RuntimeException{
+public class ManyRequestEmailAuthException extends RuntimeException {
     private final ErrorCode errorCode;
 
-    public MailAuthCodeExpiredException(String message){
+    public ManyRequestEmailAuthException(String message) {
         super(message);
-        this.errorCode = ErrorCode.CODE_EXPIRED;
+        this.errorCode = ErrorCode.MANY_REQUEST_EMAIL_AUTH;
     }
+
 }

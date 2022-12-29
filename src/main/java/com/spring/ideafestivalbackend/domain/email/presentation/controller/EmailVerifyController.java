@@ -13,9 +13,9 @@ import javax.validation.constraints.Email;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/verify-email")
+@RequestMapping("/WEBFLIX/verify-email")
 public class EmailVerifyController {
-    private EmailVerifyService emailVerifyService;
+    private final EmailVerifyService emailVerifyService;
 
     @RequestMapping(method = RequestMethod.HEAD)
     public ResponseEntity<Void> verifyEmail(@Email @RequestParam String email, @RequestParam String authCode) {

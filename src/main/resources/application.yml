@@ -1,10 +1,15 @@
+server:
+  host: 192.168.205.56
 spring:
+  jwt:
+    accessSecret: VjJ0U1MxWXlSbGRqU0ZKc1UwVktjMVZXVVhkUFVUMDk=
+    refreshSecret: VjFaV2IyTXlVWGhqUm1oVVlteHdjMVl3VlhkUFVUMDk=
   jpa:
     database: mysql
     hibernate:
         format_sql: true
         use_sql_comments: true
-        ddl-auto: create
+        ddl-auto: update
     properties:
       hibernate:
         enable_lazy_load_no_trans: 'true'
@@ -20,13 +25,12 @@ spring:
           starttls:
             enable: 'true'
           auth: 'true'
-    password: gree7942
+    password: pwgstxusbuavkrnm
   redis:
     host: localhost
     port: 6379
   main:
     allow-bean-definition-overriding: 'true'
-
   datasource:
     password: gree7942
     driver-class-name: com.mysql.cj.jdbc.Driver

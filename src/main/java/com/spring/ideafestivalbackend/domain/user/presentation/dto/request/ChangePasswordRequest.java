@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChangePasswordRequest {
-    //
+
     @NotBlank(message = "비밀번호를 입력해주세요")
     @Pattern(regexp = "(?=.*\\S+$).{8,12}", message = "비밀번호에 특수기호가 적어도 1개 이상씩 포함된 8자~12자의 비밀번호여야만 합니다.")
     private String password;

@@ -7,6 +7,7 @@ import com.spring.ideafestivalbackend.domain.email.presentation.dto.EmailDto;
 import com.spring.ideafestivalbackend.domain.email.repository.EmailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
@@ -22,12 +23,12 @@ import java.util.Random;
 public class EmailSendService {
     private final JavaMailSender emailSender;
 
-    private EmailRepository emailRepository;
+    private final EmailRepository emailRepository;
 
     @Async
     public void sendMail(EmailDto emailDto){
         Random random = new Random();
-        String authCode = String.valueOf(random.nextInt(9999)+1111);
+        String authCode = String.valueOf(random.nextInt(8888)+1111);
         sendAuthCode(emailDto.getEmail(),authCode);
     }
 
@@ -39,6 +40,7 @@ public class EmailSendService {
                         .verification(false)
                         .randomValue(authCode)
                         .email(email)
+                        .requestCount(0)
                         .build());
         if(emailEntity.getRequestCount() >= 5){
             throw new ManyRequestEmailAuthException("발송 횟수를 초과하셨습니다");
@@ -52,6 +54,7 @@ public class EmailSendService {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true,"utf-8");
             helper.setTo(email);
             helper.setText(text,true);
+            emailSender.send(mimeMessage);
         } catch (MessagingException e){
             throw new MailAuthCodeExpiredException("메일 발송에 실패했습니다.");
         }

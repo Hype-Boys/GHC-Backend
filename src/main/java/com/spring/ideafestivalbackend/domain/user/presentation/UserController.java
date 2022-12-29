@@ -13,15 +13,16 @@ import com.spring.ideafestivalbackend.domain.user.service.SignUpService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/auth")
+@RequestMapping("/WEBFLIX/auth")
 public class UserController {
-
+    private final ChangePasswordService changePasswordService;
     private final SignInService signInService;
     private final SignUpService signUpService;
     private final RenewTokenService renewTokenService;
@@ -38,7 +39,11 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-
+    @PatchMapping("/change-pw")
+    public ResponseEntity<Void> changePassword(@RequestBody @Validated ChangePasswordRequest changePasswordRequest){
+        changePasswordService.execute(changePasswordRequest);
+        return ResponseEntity.noContent().build();
+    }
     @PatchMapping
     public ResponseEntity<NewTokenResponse> renewToken(@RequestHeader("RefreshToken")String refreshToken) {
         NewTokenResponse newTokenResponse = renewTokenService.tokenReissuance(refreshToken);

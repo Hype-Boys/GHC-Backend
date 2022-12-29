@@ -18,13 +18,14 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/send-email")
+@RequestMapping("/WEBFLIX/send-email")
 public class EmailSendController {
 
     @Autowired
     private EmailSendService emailSendService;
 
-    @PostMapping(value = "/send" , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    //  , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE
+    @PostMapping(value = "/send")
     public ResponseEntity<Void> sendEmail(@RequestBody @Valid EmailDto emailDto) {
         emailSendService.sendMail(emailDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();

@@ -25,7 +25,7 @@ public class EmailEntity {
 
     private Boolean authentication;
     @ColumnDefault("1")
-    private Integer requestCount;
+    private Integer requestCount = 0;
 
     public void updateVerification(Boolean verification){
         this.verification = verification;

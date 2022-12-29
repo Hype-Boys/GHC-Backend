@@ -43,15 +43,18 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST,
                         "/auth/signup",
                         "/auth",
-                        "/user",
-                        "/email"
+                        "/user"
                 ).permitAll()
-                .antMatchers(HttpMethod.PATCH,"/auth").permitAll()
+                .antMatchers(HttpMethod.POST, "/WEBFLIX/auth/signup/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/WEBFLIX/send-email/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/WEBFLIX/auth").permitAll()
+                .antMatchers(HttpMethod.PATCH,"/auth/change-pw").permitAll()
                 .antMatchers(HttpMethod.HEAD,
+                        "/WEBFLIX/verify-email",
                         "email"
                 ).permitAll()
                 .antMatchers(HttpMethod.PATCH,"/user").authenticated()
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
         http
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

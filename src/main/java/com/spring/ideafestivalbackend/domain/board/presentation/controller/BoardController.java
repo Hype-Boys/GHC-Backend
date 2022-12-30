@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/board")
+@RequestMapping("/WEBFLIX/board")
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardService boardService;

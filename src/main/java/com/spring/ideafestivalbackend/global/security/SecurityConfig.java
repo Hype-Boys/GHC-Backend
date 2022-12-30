@@ -48,6 +48,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/WEBFLIX/auth/signup/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/WEBFLIX/send-email/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/WEBFLIX/auth").permitAll()
+                .antMatchers(HttpMethod.POST,"/WEBFLIX/board/add").permitAll()
                 .antMatchers(HttpMethod.PATCH,"/auth/change-pw").permitAll()
                 .antMatchers(HttpMethod.HEAD,
                         "/WEBFLIX/verify-email",

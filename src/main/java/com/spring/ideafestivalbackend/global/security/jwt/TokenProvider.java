@@ -36,7 +36,7 @@ public class TokenProvider {
 
     @AllArgsConstructor
     private enum TokenClaimName {
-        USER_EMAIL("userEmail"),
+        USER_EMAIL("email"),
         TOKEN_TYPE("tokenType");
         String value;
     }

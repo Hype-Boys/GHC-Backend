@@ -26,7 +26,9 @@ public enum ErrorCode {
 
     REFRESH_TOKEN_NOT_FOUND("리프레시 토큰을 찾을 수가 없습니다.",404),
 
-    MANY_REQUEST_EMAIL_AUTH("15분마다 최대 5번 이메일 인증을 요청할 수 있습니다", 429);
+    MANY_REQUEST_EMAIL_AUTH("15분마다 최대 5번 이메일 인증을 요청할 수 있습니다", 429),
+
+    NOT_NULL("null이 아닌 값, 공백이 아닌 문자를 하나 이상 포함해야 합니다",400);
 
     private final String message;
     private final int status;

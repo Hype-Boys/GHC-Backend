@@ -1,6 +1,6 @@
 package com.spring.ideafestivalbackend.global.exception.handler;
 
-import com.spring.ideafestivalbackend.domain.board.exception.ErrorCode;
+import com.spring.ideafestivalbackend.global.exception.ErrorCode;
 import com.spring.ideafestivalbackend.domain.board.exception.ErrorMessage;
 import com.spring.ideafestivalbackend.domain.user.exception.BlackListAlreadyExistException;
 import com.spring.ideafestivalbackend.domain.user.exception.RefreshTokenNotFoundException;

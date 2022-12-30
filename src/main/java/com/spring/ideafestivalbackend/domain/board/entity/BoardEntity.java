@@ -16,7 +16,6 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoardEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,7 +25,6 @@ public class BoardEntity {
     private String title;
 
     private String content;
-
 
     public void update(String title, String content) {
         this.title = title;

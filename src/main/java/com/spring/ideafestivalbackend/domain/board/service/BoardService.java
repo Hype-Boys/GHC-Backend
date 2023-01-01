@@ -1,46 +1,20 @@
 package com.spring.ideafestivalbackend.domain.board.service;
 
 import com.spring.ideafestivalbackend.domain.board.entity.BoardEntity;
-import com.spring.ideafestivalbackend.domain.board.repository.BoardRepository;
 import com.spring.ideafestivalbackend.domain.board.presentation.dto.request.BoardRequest;
-import com.spring.ideafestivalbackend.domain.board.presentation.dto.request.ModifyBoardRequest;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.spring.ideafestivalbackend.domain.board.presentation.dto.response.BoardResponse;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
+import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-public class BoardService {
-
-    private final BoardRepository boardRepository;
-    @Transactional(rollbackFor = Exception.class)
-    public void add(BoardRequest request){
-        BoardEntity board = BoardEntity.builder()
-                .username(request.getUsername())
-                .title(request.getTitle())
-                .content(request.getContent())
-                .build();
-
-        boardRepository.save(board);
-    }
+public interface BoardService {
+    List<BoardEntity> viewAll();
+    Optional<BoardEntity> viewOne(Long id);
+    Object write(Long id);
     @Transactional
-    public void delete(Long boardId){
-        BoardEntity board = boardRepository.findById(boardId).get();
-        boardRepository.delete(board);
-    }
+    void edit(Long id, BoardRequest boardRequest);
 
-    @Transactional
-    public List<BoardEntity> getBoards() {
-        return boardRepository.findAll();
-    }
-    @Transactional
-    public BoardEntity getBoard(Long postId){
-        return boardRepository.findById(postId).orElseThrow(() -> new RuntimeException());
-    }
-    @Transactional(rollbackFor = Exception.class)
-    public void updateBoard(Long id, ModifyBoardRequest request) {
-        BoardEntity board = boardRepository.findById(id).orElseThrow(() -> new RuntimeException());
-        board.update(request.getTitle(), request.getContent());
-    }
+    void add(BoardRequest boardRequest);
+    void delete(Long id);
 }

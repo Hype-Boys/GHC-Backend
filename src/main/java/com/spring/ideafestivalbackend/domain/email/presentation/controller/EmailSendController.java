@@ -24,7 +24,6 @@ public class EmailSendController {
     @Autowired
     private EmailSendService emailSendService;
 
-    //  , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE
     @PostMapping(value = "/send")
     public ResponseEntity<Void> sendEmail(@RequestBody @Valid EmailDto emailDto) {
         emailSendService.sendMail(emailDto);

@@ -20,20 +20,20 @@ public class BoardServiceImpl implements BoardService {
     @Override
     @Transactional
     public List<BoardEntity> viewAll(){
-        List<BoardEntity> auth = boardRepository.findAll();
-        return auth;
+        List<BoardEntity> boardEntity = boardRepository.findAll();
+        return boardEntity;
     }
 
     @Override
     @Transactional
     public Optional<BoardEntity> viewOne(Long id){
-        Optional<BoardEntity> auth = boardRepository.findById(id);
-        return auth;
+        Optional<BoardEntity> boardEntity = boardRepository.findById(id);
+        return boardEntity;
     }
     @Override
     @Transactional
-    public Object write(Long seq){
-        return boardRepository.findById(seq).map(board->{
+    public Object write(Long id){
+        return boardRepository.findById(id).map(board->{
             BoardResponse boardResponse = new BoardResponse();
             boardResponse.setContent(board.getContent());
             boardResponse.setTitle(board.getTitle());

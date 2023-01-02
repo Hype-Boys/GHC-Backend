@@ -33,9 +33,6 @@ public class BoardEntity {
     @Column(name = "kind")
     private String kind;
 
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "board", fetch = FetchType.LAZY)
-    private List<Comment> comment = new ArrayList<>();
-
     public void update(String content,String title,String userName){
         this.content=content;
         this.title=title;

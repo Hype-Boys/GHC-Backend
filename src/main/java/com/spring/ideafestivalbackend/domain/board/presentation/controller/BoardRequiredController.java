@@ -18,7 +18,6 @@ import javax.validation.Valid;
 @RequestMapping("/WEBFLIX/require")
 public class BoardRequiredController {
     private final BoardService boardService;
-
     @GetMapping
     public ResponseEntity viewAll(){
         boardService.viewAll();

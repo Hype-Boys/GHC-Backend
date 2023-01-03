@@ -22,14 +22,19 @@ public class BoardEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "board_id")
     private Long id;
+
     @Column(name = "content")
     private String content;
+
     @Column(name = "username")
     private String userName;
+
     @Column(name = "title")
     private String title;
+
     @Column(name = "category")
     private String category;
+
     @Column(name = "kind")
     private String kind;
 

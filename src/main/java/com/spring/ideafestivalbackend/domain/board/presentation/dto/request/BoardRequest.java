@@ -11,8 +11,10 @@ import javax.validation.constraints.NotNull;
 public class BoardRequest {
     @NotBlank
     private String title;
+
     @NotBlank
     private String username;
+
     @NotBlank
     private String content;
 }

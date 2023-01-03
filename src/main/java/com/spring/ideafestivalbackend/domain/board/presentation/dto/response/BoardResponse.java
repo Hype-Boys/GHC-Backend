@@ -9,7 +9,10 @@ import lombok.ToString;
 @ToString
 public class BoardResponse {
     private Long id;
+
     private String title;
+
     private String username;
+
     private String content;
 }

@@ -14,7 +14,6 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class BoardController {
         private final BoardServiceImpl boardService;
-
         @GetMapping
         public ResponseEntity viewAll(){
             boardService.viewAll();
